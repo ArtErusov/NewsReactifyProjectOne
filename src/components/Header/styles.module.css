@@ -1,0 +1,17 @@
+@import '../../assets/css/main.css';
+
+.header{
+    display: flex;
+    width: 100%;
+    padding: 12px 24px;
+    justify-content: space-between;
+}
+
+.title{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.date{
+    margin-top: 5px;
+}
