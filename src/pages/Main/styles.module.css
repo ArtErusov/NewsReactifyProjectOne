@@ -1,0 +1,7 @@
+@import '../../assets/css/main.css';
+
+.banners{
+    margin: 20px 24px 0;
+    display: flex;
+    gap: 20px;
+}

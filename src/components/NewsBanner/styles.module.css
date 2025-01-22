@@ -1,0 +1,17 @@
+@import '../../assets/css/main.css';
+
+.banner_container{
+    max-width: 550px;
+    padding-bottom: 20px;
+}
+
+.banner_title{
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    height: 48px;
+}
+
+.banner_text{
+    margin-top: 10px;
+}
