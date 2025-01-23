@@ -1,0 +1,18 @@
+@import '../../../../assets/css/main.css';
+.item{
+    display: flex;
+    gap: 20px;
+}
+.wrapper{
+    width: 220px;
+    height: 140px;
+    background-color: aquamarine;
+    background-position: center;
+    background-size: cover;
+    flex-shrink: 0;
+}
+
+.title{
+    margin-top: 10px;
+    height: 98px;
+}

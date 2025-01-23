@@ -1,0 +1,8 @@
+@import '../../assets/css/main.css';
+
+.list{
+    display: grid;
+    grid-template-columns: repeat(2, 550px);
+    gap: 20px;
+    margin: 20px 24px 0;
+}

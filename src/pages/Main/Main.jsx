@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getNews } from "../../api/apiNews";
 import styles from "./styles.module.css";
 import NewsBanner from "../../components/NewsBanner/NewsBanner";
+import NewsList from "../../components/NewsList/NewsList"
 // 1 - 16:25
 
 
@@ -35,6 +36,8 @@ const fetchNews = async () => {
     {news.length > 0 ? <NewsBanner item={news[1]} /> : null}
     {news.length > 0 ? <NewsBanner item={news[0]} /> : null}
     </div>
+    <NewsList news={news} />
+
   </div>
 </>
   )
