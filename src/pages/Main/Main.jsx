@@ -1,14 +1,30 @@
 import { useEffect, useState } from "react";
+import { getNews } from "../../api/apiNews";
 import styles from "./styles.module.css";
 import NewsBanner from "../../components/NewsBanner/NewsBanner";
-
+// 1 - 16:25
 
 
 function Main() {
+  const [news, setNews] = useState([]);
+ 
 
-  const news = {
-    title: "dsfsd"
-  }
+useEffect(() => {  
+const fetchNews = async () => {
+        try {
+          const response = await getNews();
+          console.log(response)
+          setNews(response.news);
+        } catch (error) {
+          console.log("Не удалось получить новости (Main):", error);
+        }
+      };
+    fetchNews();
+    }, []);
+    
+
+
+  
 
 
 
@@ -16,8 +32,8 @@ function Main() {
 <>
   <div className={styles.container}>
     <div className={styles.banners}>
-      <NewsBanner item={news} />
-      <NewsBanner item={news} />
+    {news.length > 0 ? <NewsBanner item={news[1]} /> : null}
+    {news.length > 0 ? <NewsBanner item={news[0]} /> : null}
     </div>
   </div>
 </>
