@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { getNews } from "../../api/apiNews";
+
 import styles from "./styles.module.css";
 import NewsBanner from "../../components/NewsBanner/NewsBanner";
 import NewsList from "../../components/NewsList/NewsList"
-// 1 - 16:25
-
 
 function Main() {
   const [news, setNews] = useState([]);
@@ -22,23 +21,20 @@ const fetchNews = async () => {
       };
     fetchNews();
     }, []);
-    
-
-
-  
-
-
 
   return (
 <>
   <div className={styles.container}>
     <div className={styles.banners}>
-    {news.length > 0 ? <NewsBanner item={news[1]} /> : null}
-    {news.length > 0 ? <NewsBanner item={news[0]} /> : null}
+      {news.length > 0 ? <NewsBanner item={news[1]} /> : null}
+      {news.length > 0 ? <NewsBanner item={news[0]} /> : null}
     </div>
-    <NewsList news={news} />
-
   </div>
+  <div className={styles.divider}></div>
+  <div className={styles.container}>  
+    <NewsList news={news} />
+  </div>
+  
 </>
   )
 }
