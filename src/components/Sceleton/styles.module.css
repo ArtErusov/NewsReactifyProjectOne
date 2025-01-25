@@ -1,0 +1,47 @@
+@import '../../assets/css/main.css';
+.item{
+    display: grid;
+    grid-template-columns: repeat(2, 550px);
+    gap: 20px;
+    margin: 20px 24px 0;
+}
+.item_img{
+    width: 220px;
+    height: 140px;
+    background-color: aquamarine;
+}
+/* Доделать скелетон и изменить цвета с анимацией */
+
+
+
+.banner{
+    display:flex;
+    gap: 20px; 
+}
+
+.banner_img{
+    width: 550px;
+    height: 272px;
+    background-color: rgb(1, 73, 73);
+}
+
+.banner_text{
+    margin-top: 14px;
+    width: 540px;
+    height: 16px;
+    background-color: rgb(1, 73, 73);
+}
+
+.banner_text_bottom{
+    margin-top: 6px;
+    width: 280px;
+    height: 16px;
+    background-color: rgb(1, 73, 73);
+}
+.banner_author{
+    margin-top: 20px;
+    width: 360px;
+    height: 16px;
+    background-color: rgb(1, 73, 73);
+    margin-bottom: 22px;
+}
