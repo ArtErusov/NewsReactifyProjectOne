@@ -1,37 +1,37 @@
 import styles from "./styles.module.css";
 
 function Pagination({totalPages, currentPage, handleNextPage, handlePreviousPage, handlePageClick}) {
-  return (
-    <div className={styles.pagination}>
-
-     <button 
-        disabled={currentPage === 1} 
-        className={styles.button}  
-        onClick={handlePreviousPage}>
-          {"<"}
-      </button>
-
-     <div className={styles.buttons_flex}>
+return (
+  <div className={styles.pagination}>
+    <button 
+      className={styles.button} 
+      disabled={currentPage === 1}   
+      onClick={handlePreviousPage}>
+      {"<"}
+    </button>
+    <div className={styles.buttons_flex}>
+      {/* Создаем пустой массив который будет отображать кнопки(страницы) */}
       {[...Array(totalPages)].map((_, index) => {
-        return <button 
-          disabled={index + 1 === currentPage} 
-          className={styles.button}
-          onClick={() => handlePageClick(index + 1)} 
-          key={index}>
+        return (
+          <button 
+            className={styles.button}
+            disabled={index + 1 === currentPage}    
+            onClick={() => handlePageClick(index + 1)} 
+            key={index}>
             {index + 1}
-        </button>
-      })}
+          </button>)
+        })}
       </div>
-
-      <button 
-        disabled={currentPage === totalPages} 
-        className={styles.button} 
-        onClick={handleNextPage}>
-          {">"}
-      </button>
-
-     </div>
+    <button 
+      className={styles.button} 
+      disabled={currentPage === totalPages} 
+      onClick={handleNextPage}>
+      {">"}
+    </button>
+   </div>
   );
 }
 
 export default Pagination;
+
+// disabled - делает элемент не активным
