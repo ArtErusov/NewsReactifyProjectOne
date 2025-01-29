@@ -31,7 +31,7 @@ return (
    </div>
   );
 }
-
+//тест
 export default Pagination;
 
 // disabled - делает элемент не активным
