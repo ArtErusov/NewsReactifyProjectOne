@@ -8,6 +8,7 @@ import Sceleton from "../../components/Sceleton/Sceleton";
 import Pagination from "../../components/Pagination/Pagination";
 import Categories from "../../components/Сategories/Сategories";
 import Search from "../../components/Search/Search";
+import { useDebounce } from "../../helpers/hooks/useDebounce";
 
 function Main() {
 
@@ -44,6 +45,7 @@ useEffect(() => {
 }, []);
 // ========== Search =========================================
 const [keywords, setKeywords] = useState("");
+const debouncedKeywords = useDebounce(keywords, 1500)
 
 // ========== Запрос на сервер =========================================
 
@@ -54,7 +56,7 @@ const fetchNews = async () => {
       page_number: currentPage,
       page_size: pageSize,
       category: selectedCategories === "All" ? null : selectedCategories,
-      keywords: keywords
+      keywords: debouncedKeywords
     });
     setNews(response.news);
     setIsLoading(true)
@@ -65,7 +67,7 @@ const fetchNews = async () => {
 
 useEffect(() => {  
     fetchNews();
-    }, [currentPage, selectedCategories, keywords]);
+    }, [currentPage, selectedCategories, debouncedKeywords]);
 
 // =====================================================================
 
