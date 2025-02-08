@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getNews } from "../../api/apiNews";
+import { getNews, getCaterories } from "../../api/apiNews";
 
 import styles from "./styles.module.css";
 import NewsBanner from "../../components/NewsBanner/NewsBanner";
@@ -10,6 +10,7 @@ import Pagination from "../../components/Pagination/Pagination";
 function Main() {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
 
 // ============Pagination
 const [currentPage, setCurrentPage] = useState(1);
@@ -30,18 +31,38 @@ const handlePreviousPage = () => {
 
 const handlePageClick = (pageNumber) => setCurrentPage(pageNumber)
 
+// ==========Select Category
+const [categories, setCategories] = useState([]);
+const [selectedCategories, setSelectedCategories] = useState('All');
+
+
+const fetchCaterories = async () => {
+  try {
+    const response = await getCaterories();
+    setCategories(["All", ...response.categories])    
+  } catch (error) {
+    console.log("Не удалось получить Категории новостей (Main):", error);
+  }
+};
+
+
+useEffect(() => {  
+  fetchCaterories();
+}, []);
+
 // ==========
-
-
-
-
+console.log(categories)
+console.log(selectedCategories)
 
 useEffect(() => {  
 const fetchNews = async () => {
         try {
           setIsLoading(false)
-          const response = await getNews(currentPage, pageSize);
-          console.log(response)
+          const response = await getNews({
+            page_number:currentPage,
+            page_size: pageSize,
+            category: selectedCategories === "All" ? null : selectedCategories
+          });
           setNews(response.news);
           setIsLoading(true)
         } catch (error) {
@@ -49,7 +70,9 @@ const fetchNews = async () => {
         }
       };
     fetchNews();
-    }, [currentPage]);
+    }, [currentPage, selectedCategories]);
+
+
 
   return (
 <>
@@ -69,7 +92,20 @@ const fetchNews = async () => {
     </div>
   </div>
   <div className={styles.divider}></div>
-  <div className={styles.container}>  
+  <div className={styles.container}> 
+
+  <ul className={styles.categories}>
+  {categories.map((item, index) => (
+      <li 
+        className={ item === selectedCategories ? styles.categories__item__active : styles.categories__item  } 
+        onClick={() => setSelectedCategories(item)} 
+        key={index}>
+        {item}
+      </li>
+      ))} 
+  </ul>
+
+
   {isLoading ? <NewsList news={news} /> : <Sceleton count = {10}/> }
   <Pagination 
         totalPages={totalPages} 
@@ -79,7 +115,7 @@ const fetchNews = async () => {
         handlePageClick={handlePageClick}
       />
   </div>
-  
+
 </>
   )
 }

@@ -4,7 +4,6 @@ import { LengthCheck } from "../../../../helpers/lengthCheck";
 
 function NewsItem({ item }) {
 
-console.log(LengthCheck(item.author))
   return (
     <li className={styles.item}>
       <div className={styles.wrapper} style={{ backgroundImage: `url(${item.image})` }}></div>
