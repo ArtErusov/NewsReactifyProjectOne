@@ -6,6 +6,7 @@ import NewsBanner from "../../components/NewsBanner/NewsBanner";
 import NewsList from "../../components/NewsList/NewsList"
 import Sceleton from "../../components/Sceleton/Sceleton";
 import Pagination from "../../components/Pagination/Pagination";
+import Categories from "../../components/Сategories/Сategories";
 
 function Main() {
   const [news, setNews] = useState([]);
@@ -93,8 +94,9 @@ const fetchNews = async () => {
   </div>
   <div className={styles.divider}></div>
   <div className={styles.container}> 
+  <Categories categories={categories} selectedCategories={selectedCategories} setSelectedCategories={setSelectedCategories}/>
 
-  <ul className={styles.categories}>
+  {/* <ul className={styles.categories}>
   {categories.map((item, index) => (
       <li 
         className={ item === selectedCategories ? styles.categories__item__active : styles.categories__item  } 
@@ -103,7 +105,7 @@ const fetchNews = async () => {
         {item}
       </li>
       ))} 
-  </ul>
+  </ul> */}
 
 
   {isLoading ? <NewsList news={news} /> : <Sceleton count = {10}/> }
