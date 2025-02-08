@@ -9,7 +9,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import Categories from "../../components/Сategories/Сategories";
 
 function Main() {
-  
+
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -41,6 +41,8 @@ const fetchCaterories = async () => {
 useEffect(() => {  
   fetchCaterories();
 }, []);
+// ========== Search =========================================
+const [keywords, setKeywords] = useState("");
 
 // ========== Запрос на сервер =========================================
 
@@ -48,9 +50,10 @@ const fetchNews = async () => {
   try {
     setIsLoading(false)
     const response = await getNews({
-      page_number:currentPage,
+      page_number: currentPage,
       page_size: pageSize,
-      category: selectedCategories === "All" ? null : selectedCategories
+      category: selectedCategories === "All" ? null : selectedCategories,
+      keywords: keywords
     });
     setNews(response.news);
     setIsLoading(true)
@@ -61,7 +64,7 @@ const fetchNews = async () => {
 
 useEffect(() => {  
     fetchNews();
-    }, [currentPage, selectedCategories]);
+    }, [currentPage, selectedCategories, keywords]);
 
 // =====================================================================
 
@@ -81,6 +84,7 @@ return (
     </div>
   </div>
   <div className={styles.divider}></div>
+  <input type="text" value={keywords} onChange={(e) => setKeywords(e.target.value)} placeholder="React"/>
 
   <div className={styles.container}> 
     <Categories 
