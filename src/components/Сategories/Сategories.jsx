@@ -2,7 +2,6 @@ import styles from './styles.module.css';
 
 function Сategories({selectedCategories, categories, setSelectedCategories}) {
     return (
-    <>
     <ul className={styles.categories}>
     {categories.map((item, index) => (
         <li 
@@ -13,7 +12,6 @@ function Сategories({selectedCategories, categories, setSelectedCategories}) {
         </li>
         ))} 
     </ul>
-    </>
     )
   }
   
