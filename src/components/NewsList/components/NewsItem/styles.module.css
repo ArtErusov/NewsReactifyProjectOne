@@ -6,7 +6,7 @@
 .wrapper{
     width: 220px;
     height: 140px;
-    background-color: aquamarine;
+    background-color: var(--dark-gray);
     background-position: center;
     background-size: cover;
     flex-shrink: 0;

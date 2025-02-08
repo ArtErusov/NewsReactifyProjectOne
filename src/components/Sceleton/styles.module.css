@@ -8,7 +8,7 @@
 .item_img{
     width: 220px;
     height: 140px;
-    background-color: aquamarine;
+    background-color: var(--dark-gray);
 }
 /* Доделать скелетон и изменить цвета с анимацией */
 
@@ -22,26 +22,26 @@
 .banner_img{
     width: 550px;
     height: 272px;
-    background-color: rgb(1, 73, 73);
+    background-color: var(--dark-gray);
 }
 
 .banner_text{
     margin-top: 14px;
     width: 540px;
     height: 16px;
-    background-color: rgb(1, 73, 73);
+    background-color: var(--dark-gray);
 }
 
 .banner_text_bottom{
     margin-top: 6px;
     width: 280px;
     height: 16px;
-    background-color: rgb(1, 73, 73);
+    background-color: var(--dark-gray);
 }
 .banner_author{
     margin-top: 20px;
     width: 360px;
     height: 16px;
-    background-color: rgb(1, 73, 73);
+    background-color: var(--dark-gray);
     margin-bottom: 22px;
 }

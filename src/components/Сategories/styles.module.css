@@ -17,21 +17,21 @@
 
 .categories__item{
     width: 1200px;
-    border: 1px solid #2d2d2d;
+    border: 1px solid var(--black);
     padding: 5px 10px;
     border-radius: 8px;
     cursor: pointer;
 }
 
 .categories__item:hover{
-    background-color: #2d2d2d;
-    color: aliceblue;
+    background-color: var(--black);
+    color: var(--white);
 }
 
 .categories__item__active{
-    background-color: #2d2d2d;
-    color: aliceblue;
-    border: 1px solid #2d2d2d;
+    background-color: var(--black);
+    color: var(--white);
+    border: 1px solid var(--black);
     padding: 5px 10px;
     border-radius: 8px;
     cursor: pointer;

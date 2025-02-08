@@ -13,26 +13,26 @@
 }
 
 .button{
-    color: #565656;
+    color: var(--black);
     width: 30px;
     height: 40px;
-    border: 1px solid #565656;
+    border: 1px solid var(--black);
     border-radius: 7px;
 }
 
 .button:hover{
-    background-color: #565656;
-    color: #fff;
+    background-color: var(--black);
+    color: var(--white);
     transition: 0.3s;
 }
 
 .button:disabled{
-    color: #bdbdbd;
-    border: 1px solid #bdbdbd;
+    color: var(--dark-gray);
+    border: 1px solid var(--dark-gray);
     cursor: default;
 }
 
 .button:disabled:hover {
     background-color: transparent; 
-    color: #bdbdbd;
+    color: var(--dark-gray);
 }
