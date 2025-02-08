@@ -7,6 +7,7 @@ import NewsList from "../../components/NewsList/NewsList"
 import Sceleton from "../../components/Sceleton/Sceleton";
 import Pagination from "../../components/Pagination/Pagination";
 import Categories from "../../components/Сategories/Сategories";
+import Search from "../../components/Search/Search";
 
 function Main() {
 
@@ -84,7 +85,7 @@ return (
     </div>
   </div>
   <div className={styles.divider}></div>
-  <input type="text" value={keywords} onChange={(e) => setKeywords(e.target.value)} placeholder="React"/>
+
 
   <div className={styles.container}> 
     <Categories 
@@ -92,6 +93,7 @@ return (
       selectedCategories={selectedCategories} 
       setSelectedCategories={setSelectedCategories}
     />
+    <Search keywords={keywords} setKeywords={setKeywords} />
     {isLoading ? <NewsList news={news} /> : <Sceleton count = {10}/> }
     <Pagination 
       totalPages={totalPages} 
