@@ -9,6 +9,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import Categories from "../../components/Сategories/Сategories";
 import Search from "../../components/Search/Search";
 import { useDebounce } from "../../helpers/hooks/useDebounce";
+import { PAGE_SIZE, TOTAL_PAGES } from "../../Constants/constants";
 
 function Main() {
 
@@ -19,10 +20,7 @@ function Main() {
 // ============Pagination =========================================
 
 const [currentPage, setCurrentPage] = useState(1);
-const totalPages = 10;
-const pageSize = 10;
-
-const handleNextPage = () => setCurrentPage(currentPage < totalPages ? currentPage + 1 : currentPage);
+const handleNextPage = () => setCurrentPage(currentPage < TOTAL_PAGES ? currentPage + 1 : currentPage);
 const handlePreviousPage = () => setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage );
 const handlePageClick = (pageNumber) => setCurrentPage(pageNumber)
 
@@ -54,7 +52,7 @@ const fetchNews = async () => {
     setIsLoading(false)
     const response = await getNews({
       page_number: currentPage,
-      page_size: pageSize,
+      page_size: PAGE_SIZE,
       category: selectedCategories === "All" ? null : selectedCategories,
       keywords: debouncedKeywords
     });
@@ -98,7 +96,7 @@ return (
     <Search keywords={keywords} setKeywords={setKeywords} />
     {isLoading ? <NewsList news={news} /> : <Sceleton count = {10}/> }
     <Pagination 
-      totalPages={totalPages} 
+      totalPages={TOTAL_PAGES} 
       currentPage={currentPage}
       handleNextPage={handleNextPage} 
       handlePreviousPage={handlePreviousPage} 
