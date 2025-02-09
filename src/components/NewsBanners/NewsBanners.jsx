@@ -1,3 +1,4 @@
+import withSceleton from '../../helpers/hocs/wthSceleton';
 import BannerItem from './components/BannerItem/BannerItem';
 import styles from './styles.module.css';
 
@@ -10,4 +11,7 @@ function NewsBanners({item}) {
   )
 }
 
-export default NewsBanners 
+const NewsBannerWithSkeleton = withSceleton(NewsBanners, 2)
+
+
+export default NewsBannerWithSkeleton 

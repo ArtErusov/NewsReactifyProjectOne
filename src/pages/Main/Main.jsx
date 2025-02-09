@@ -72,7 +72,8 @@ useEffect(() => {
 return (
 <>
   <div className={styles.container}>
-    {isLoading ?  <NewsBanners item={news} /> :  <Sceleton count = {2}/> }
+    {/* {isLoading ?  <NewsBanners item={news} /> :  <Sceleton count = {2}/> } */}
+    <NewsBanners item={news}  isLoading={isLoading}/>
   </div>
   <div className={styles.divider}></div>
 
