@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getNews, getCaterories } from "../../api/apiNews";
 
 import styles from "./styles.module.css";
-import NewsBanner from "../../components/NewsBanner/NewsBanner";
+import NewsBanners from "../../components/NewsBanners/NewsBanners";
 import NewsList from "../../components/NewsList/NewsList"
 import Sceleton from "../../components/Sceleton/Sceleton";
 import Pagination from "../../components/Pagination/Pagination";
@@ -72,20 +72,9 @@ useEffect(() => {
 return (
 <>
   <div className={styles.container}>
-    <div className={styles.banners}>
-      {isLoading ? (
-        <>
-          <NewsBanner item={news[0]} />
-          <NewsBanner item={news[1]} />
-        </>
-      ) : (
-        <Sceleton count = {2}/> 
-        )
-      }
-    </div>
+    {isLoading ?  <NewsBanners item={news} /> :  <Sceleton count = {2}/> }
   </div>
   <div className={styles.divider}></div>
-
 
   <div className={styles.container}> 
     <Categories 
