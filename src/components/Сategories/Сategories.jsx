@@ -1,4 +1,5 @@
 import styles from './styles.module.css';
+import withSceleton from '../../helpers/hocs/wthSceleton';
 
 function Сategories({selectedCategories, categories, setSelectedCategories}) {
     return (
@@ -15,4 +16,6 @@ function Сategories({selectedCategories, categories, setSelectedCategories}) {
     )
   }
   
-  export default Сategories;
+  const СategoriesWithSkeleton = withSceleton(Сategories, 1, "categories")
+
+  export default СategoriesWithSkeleton;

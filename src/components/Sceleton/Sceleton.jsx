@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 function Sceleton({ count = 2, type }) {
   return (
     <>
-      {type == "banners" ? (
+      {type === "banners" ? (
         <ul className={styles.banner}>
           {[...Array(count)].map((_, index) => (
             <li key={index}>
@@ -14,7 +14,7 @@ function Sceleton({ count = 2, type }) {
             </li>
           ))}
         </ul>
-      ) : (
+      ) : type === "news" ? (
         <ul className={styles.news}>
           {[...Array(count)].map((_, index) => (
             <li key={index} className={styles.news_flex}>
@@ -28,6 +28,8 @@ function Sceleton({ count = 2, type }) {
             </li>
           ))}
         </ul>
+      ) : (
+        <div className={styles.categories}></div>
       )}
     </>
   );

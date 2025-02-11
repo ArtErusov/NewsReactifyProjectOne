@@ -1,6 +1,6 @@
 @import '../../assets/css/main.css';
 
-
+/* -------------news------------- */
 .news{
     display: grid;
     grid-template-columns: repeat(2, 550px);
@@ -17,35 +17,32 @@
     gap: 20px;
 }
 
-.news_text_one{
-    background-color: var(--dark-gray);
-    width: 220px;
-    height: 14px;
+.news_text_one, .news_text_two, .news_text_tree, .news_author{
+   height: 14px; 
+   background-color: var(--dark-gray);
+}
+
+.news_text_one{    
+    width: 220px;   
 }
 .news_text_two{
     margin-top: 10px;
-    background-color: var(--dark-gray);
     width: 180px;
-    height: 14px;
 }
 
 .news_text_tree{
     margin-top: 10px;
-    background-color: var(--dark-gray);
     width: 140px;
-    height: 14px;
 }
 .news_author{
     margin-top: 62px;
-    background-color: var(--dark-gray);
     width: 190px;
-    height: 14px;
 }
 
 /* Доделать скелетон и изменить цвета с анимацией */
 
 
-
+/* -------------banner------------- */
 .banner{
     margin: 20px 0 0 20px;
     display:flex;
@@ -58,23 +55,31 @@
     background-color: var(--dark-gray);
 }
 
+.banner_text_one, .banner_text_two, .banner_author{
+     height: 16px;
+    background-color: var(--dark-gray);
+}
+
 .banner_text_one{
     margin-top: 14px;
     width: 540px;
-    height: 16px;
-    background-color: var(--dark-gray);
 }
 
 .banner_text_two{
     margin-top: 6px;
     width: 280px;
-    height: 16px;
-    background-color: var(--dark-gray);
+   
 }
 .banner_author{
     margin-top: 20px;
     width: 360px;
-    height: 16px;
-    background-color: var(--dark-gray);
     margin-bottom: 22px;
+}
+/* -------------categories------------- */
+.categories{
+    margin: 10px 20px 0;
+    width: 1110px;
+    height: 30px;
+    border-radius: 8px;
+    background-color: var(--dark-gray);
 }

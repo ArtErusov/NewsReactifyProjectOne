@@ -77,13 +77,17 @@ return (
   <div className={styles.divider}></div>
 
   <div className={styles.container}> 
-    <Categories 
+
+  <Categories 
       categories={categories} 
       selectedCategories={selectedCategories} 
       setSelectedCategories={setSelectedCategories}
-    />
+      isLoading={isLoading} 
+      type={"categories"} />
+
+
     <Search keywords={keywords} setKeywords={setKeywords} />
-    {isLoading ? <NewsList news={news} /> : <Sceleton count = {10}/> }
+    <NewsList news={news} count = {10} type={"news"} isLoading={isLoading} /> 
     <Pagination 
       totalPages={TOTAL_PAGES} 
       currentPage={currentPage}

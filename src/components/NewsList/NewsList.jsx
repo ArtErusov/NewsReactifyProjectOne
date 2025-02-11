@@ -1,5 +1,6 @@
 import NewsItem from "./components/NewsItem/NewsItem";
 import styles from "./styles.module.css";
+import withSceleton from "../../helpers/hocs/wthSceleton";
 
 function NewsList({ news }) {
   return (
@@ -11,4 +12,6 @@ function NewsList({ news }) {
   );
 }
 
-export default NewsList;
+const NewsListWithSkeleton = withSceleton(NewsList, 10, "news")
+
+export default NewsListWithSkeleton;
