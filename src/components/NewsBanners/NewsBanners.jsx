@@ -11,7 +11,7 @@ function NewsBanners({item}) {
   )
 }
 
-const NewsBannerWithSkeleton = withSceleton(NewsBanners, 2)
+const NewsBannerWithSkeleton = withSceleton(NewsBanners, 2, "banners")
 
 
 export default NewsBannerWithSkeleton 
